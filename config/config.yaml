@@ -1,0 +1,48 @@
+pipeline:
+  max_resynthesis_attempts: 2
+  similarity_threshold: 0.75
+  benchmark_minimum_coverage: 3
+
+ingestion:
+  chunk_size_level2_tokens: 1500
+  chunk_overlap_level2_tokens: 200
+  chunk_size_level3_tokens: 300
+  chunk_overlap_level3_tokens: 50
+  max_qna_pairs_per_section: 5
+  max_comments_per_section: 3
+  quality_score_auto_accept: 0.85
+  quality_score_auto_reject: 0.50
+
+llm:
+  mode: "local"
+  local_model: "mistral"
+  local_endpoint: "http://localhost:11434"
+  api_model: "gpt-4o"
+  api_provider: "openai"
+
+sections:
+  high_priority:
+    - "executive_summary"
+    - "dose_exposure_response"
+    - "pk_characteristics"
+    - "drug_drug_interactions"
+    - "labeling_recommendations"
+    - "special_populations"
+  rule_based_only:
+    - "phase_iv_commitments"
+    - "analytical_section"
+  skip:
+    - "appendix_tables"
+
+benchmark:
+  decay_review_days: 90
+  weight_human_curated: 1.0
+  weight_auto_corrected: 0.8
+  weight_auto_reviewed: 0.6
+  weight_auto_generated: 0.0
+
+chunking:
+  levels:
+    level_1: "major_section"
+    level_2: "numbered_subsection"
+    level_3: "paragraph"
