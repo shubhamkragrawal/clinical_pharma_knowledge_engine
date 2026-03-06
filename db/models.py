@@ -1,9 +1,4 @@
 """
-db/models.py
-
-SQLAlchemy ORM models for the FDA Clinical Pharmacology Pipeline.
-Defines all 9 tables exactly as specified in the handoff document.
-
 Tables:
   1. pdf_metadata
   2. qna_store
@@ -77,10 +72,6 @@ class PDFMetadata(Base):
     has_comments = Column(Boolean)
     curator_notes = Column(Text)
 
-
-# ---------------------------------------------------------------------------
-# Table 2: qna_store
-# ---------------------------------------------------------------------------
 
 
 class QnAStore(Base):
