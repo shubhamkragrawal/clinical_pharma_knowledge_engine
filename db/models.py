@@ -71,6 +71,11 @@ class PDFMetadata(Base):
     has_qna = Column(Boolean)
     has_comments = Column(Boolean)
     curator_notes = Column(Text)
+    pdufa_date = Column(Date, nullable=True)
+    associated_ind = Column(Text, nullable=True)
+    ond_division = Column(Text, nullable=True)
+    ocp_reviewer_names = Column(ARRAY(Text), nullable=True)
+
 
 
 

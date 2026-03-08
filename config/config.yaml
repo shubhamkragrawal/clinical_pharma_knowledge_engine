@@ -12,6 +12,8 @@ ingestion:
   max_comments_per_section: 3
   quality_score_auto_accept: 0.85
   quality_score_auto_reject: 0.50
+  cover_page_extraction_depth: 4
+  metadata_confidence_threshold: 0.80
 
 llm:
   mode: "local"
